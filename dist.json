@@ -27,9 +27,18 @@
       "description": "Live server"
     }
   ],
+  "tags": [
+    {
+      "name": "SeaDistance",
+      "description": "Sea distances"
+    }
+  ],
   "paths": {
     "/seaDistance": {
       "post": {
+        "tags": [
+          "SeaDistance"
+        ],
         "summary": "Get the sea distance between two ports.",
         "security": [
           {
