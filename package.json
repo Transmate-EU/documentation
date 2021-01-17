@@ -10,6 +10,6 @@
     "start": "openapi preview-docs",
     "build": "openapi bundle -o dist",
     "test": "openapi lint",
-    "add-scripts" : "./node_modules/.bin/snippet-enricher-cli --input=dist.json > dist-with-examples.json"
+    "add-scripts": "./node_modules/.bin/snippet-enricher-cli --input=dist.json > dist-with-examples.json"
   }
 }

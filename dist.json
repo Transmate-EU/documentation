@@ -236,19 +236,13 @@
             "items": {
               "type": "string",
               "title": "Unlocodes",
-              "example": [
-                "BEANR",
-                "IDJKT"
-              ]
+              "example": "BEANR"
             }
           },
           {
             "type": "string",
             "title": "Unlocodes, or port names",
-            "example": [
-              "BEANR",
-              "antwerp, belgium"
-            ]
+            "example": "antwerp, belgium"
           },
           {
             "type": "object",
@@ -269,12 +263,7 @@
             }
           }
         ],
-        "example": [
-          "BEANR",
-          "IDJKT",
-          "antwerp, belgium",
-          "{ lat: 22.48441, lng: -97.86003 }"
-        ]
+        "example": "IDJKT"
       },
       "sea-distance-main": {
         "type": "object",
@@ -291,10 +280,7 @@
               "laneMatrix",
               "test"
             ],
-            "example": [
-              "distance",
-              "leadtime"
-            ]
+            "example": "distance"
           },
           "from": {
             "$ref": "#/components/schemas/sea-distance-from-to"
