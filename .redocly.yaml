@@ -1,6 +1,7 @@
 # See https://redoc.ly/docs/cli/configuration/ for more information.
 apiDefinitions:
-  main: openapi/openapi.yaml
+  main: openapi/sea-distance-api.json
+  
 lint:
   extends:
     - recommended
