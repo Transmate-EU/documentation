@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "https://uploads-ssl.webflow.com/5bb09c94c110e4695b7fbe87/5bb0cfa5ace69ce819b42b1a_571d49bb558170fc61afe2ec_logo_large_new_transmate.png"
     },
-    "description": "description of the apis of transmate\n# Introduction\nTransmate has multiple api available sea distance api is one of them\n## Sea distance\nuse this api to get estimated miles and leadtimes for port to port routes leadtimes is an estimated lead time for container traffic,  to get an estimated travel time you can divide the distance by the speed of the vessel (something between 10 and 20 knots)\n"
+    "description": "description of the apis of transmate\n# Introduction\nTransmate has multiple api available:\n"
   },
   "externalDocs": {
     "description": "Transmate Webiste",
@@ -34,7 +34,7 @@
   "tags": [
     {
       "name": "SeaDistance",
-      "description": "API to calculate Sea distances, and lead time, used internally to get rate estimations."
+      "description": "API to calculate Sea distances, and lead time, used internally to get rate estimations. api to get estimated miles and leadtimes for port to port routes leadtimes is an estimated lead time for container traffic,  to get an estimated travel time you can divide the distance by the speed of the vessel (something between 10 and 20 knots)"
     },
     {
       "name": "Shipment",
