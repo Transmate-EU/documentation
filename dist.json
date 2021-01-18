@@ -679,7 +679,6 @@
           "items": {
             "type": "array",
             "items": {
-              "type": "object",
               "$ref": "#/components/schemas/items"
             },
             "default": []
@@ -1158,7 +1157,6 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "$ref": "#/components/schemas/items"
                       },
                       "default": []
