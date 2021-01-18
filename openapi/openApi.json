@@ -23,24 +23,165 @@
   },
   "servers": [
     {
-      "url": "https://eu-de.functions.appdomain.cloud/api/v1/web/e53db790-412a-497a-aec2-85c02104d6a6",
+      "url": "https://7b84f578.eu-de.apigw.appdomain.cloud",
       "description": "Live server"
+    },
+
+    {
+      "url": "https://c99a35b8.eu-de.apigw.appdomain.cloud",
+      "description": "Dev server"
     }
   ],
-  "tags": [{
-    "name": "SeaDistance",
-    "description": "Sea distances"
-  }],
+  "tags": [
+    {
+      "name": "SeaDistance",
+      "description": "API to calculate Sea distances, and lead time, used internally to get rate estimations."
+    },
+    {
+      "name": "Shipment",
+      "description": "Create or modify shipments."
+    },
+    {
+      "name": "Partner",
+      "description": "Create or modify partnerships."
+    }
+  ],
   "paths": {
-    "/seaDistance": {
+    "/TransmateCustomerApi/partner": {
       "post": {
-        "tags":["SeaDistance"],
+        "tags": [
+          "Partner"
+        ],
+        "summary": "partnership create or modify",
+        "operationId": "postPartner",
+        "parameters": [],
+        "requestBody": {
+          "description": "create or modify partnerships",
+         
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../schemas/partnerSchema.json"
+              },
+              "example": {
+                "type": "partnerships",
+                "request": {
+                  "name": "UAB Tanklita",
+                  "description": "out partner for sea freight in EU",
+                  "ediId": "V00-001159",
+                  "profile": {
+                    "contacts": [
+                      {
+                        "contactType": "general",
+                        "phone": "+370 693 54 953"
+                      },
+                      {
+                        "contactType": "general",
+                        "mail": "tanklita1@gmail.com"
+                      }
+                    ],
+                    "services": [
+                      "Tanker food"
+                    ],
+                    "locations": [
+                      {
+                        "name": "UAB Tanklita",
+                        "address": "Vilniaus g. 87",
+                        "country": "LTU",
+                        "locationType": [
+                          "office"
+                        ],
+                        "shippingModes": [
+                          "road"
+                        ]
+                      }
+                    ]
+                  },
+                  "type": "carrier",
+                  "status": "active"
+                  
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+            
+              
+            }
+          ,
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+               
+                "example": {
+                  "error": {
+                    "code": "issue with function!",
+                    "message": "env not set, check your authentication keys!"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+        
+      }
+    },
+    "/TransmateCustomerApi/shipment": {
+      "post": {
+        "operationId": "postShipment",
+        "tags": ["Shipment"],
+        "summary": "create, modify and cancel shipments.",
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../schemas/shipmentSchema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+        
+      }
+    },
+    "/public/seaDistance": {
+      "post": {
+        "tags": ["SeaDistance"],
         "summary": "Get the sea distance between two ports.",
         "security": [
           {
             "api_key": []
           }
         ],
+
         "requestBody": {
           "content": {
             "application/json": {
@@ -146,6 +287,9 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "403": {
             "description": "Forbidden"
