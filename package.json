@@ -13,7 +13,7 @@
     "setup-schemas": "node openapi/setup/schemaSetup.js",
     "build": "openapi bundle -o dist",
     "test": "openapi lint",
-    "add-scripts": "./node_modules/.bin/snippet-enricher-cli --input=dist.json > dist-with-examples.json",
+    "add-scripts": "./node_modules/.bin/snippet-enricher-cli --input=dist.json > html/dist-with-examples.json",
     "all": "npm run setup-schemas && npm run build && npm run add-scripts"
   }
 }
