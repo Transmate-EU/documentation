@@ -34,7 +34,7 @@
   "tags": [
     {
       "name": "SeaDistance",
-      "description": "API to calculate Sea distances, and lead time, used internally to get rate estimations. api to get estimated miles and leadtimes for port to port routes leadtimes is an estimated lead time for container traffic,  to get an estimated travel time you can divide the distance by the speed of the vessel (something between 10 and 20 knots)"
+      "description": "API to calculate Sea distances, and lead time, used internally to get rate estimations. api to get estimated miles and leadtimes for port to port routes leadtimes is an estimated lead time for container traffic,  to get an estimated travel time you can divide the distance by the speed of the vessel (something between 10 and 20 knots)\ntype=distance only works with lat lng or names, not unlocs"
     },
     {
       "name": "Shipment",
@@ -1332,7 +1332,7 @@
               "laneMatrix",
               "test"
             ],
-            "example": "distance"
+            "example": "leadtime"
           },
           "from": {
             "$ref": "#/components/schemas/sea-distance-from-to"
