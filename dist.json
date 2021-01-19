@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Transmate APIs",
     "termsOfService": "https://www.transmate.eu/legal/terms-of-use",
     "contact": {
