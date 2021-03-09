@@ -1503,14 +1503,12 @@
               "date": {
                 "type": "string",
                 "title": "The date schema",
-                "default": "",
                 "examples": [
                   "2018-10-30"
                 ]
               },
               "goods": {
                 "type": "object",
-                "title": "The goods schema",
                 "default": {},
                 "examples": [
                   {
@@ -1526,7 +1524,7 @@
                 "properties": {
                   "quantity": {
                     "type": "object",
-                    "title": "The quantity schema",
+                    "title": "The taxable quanttities",
                     "default": {},
                     "examples": [
                       {
@@ -1569,6 +1567,7 @@
                 "additionalItems": true,
                 "items": {
                   "type": "object",
+                  "additionalProperties": true,
                   "default": {},
                   "examples": [
                     [
@@ -1606,7 +1605,6 @@
               "exchangeDate": {
                 "type": "string",
                 "title": "The exchangeDate schema",
-                "default": "",
                 "examples": [
                   "2018-10-30"
                 ]
