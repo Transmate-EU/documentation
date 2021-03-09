@@ -43,6 +43,10 @@
     {
       "name": "Partner",
       "description": "Create or modify partnerships."
+    },
+    {
+      "name": "Simulate",
+      "description": "Simulate a transport rate."
     }
   ],
   "paths": {
@@ -161,6 +165,28 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/transmateapi/simulateRate": {
+      "post": {
+        "tags": [
+          "Simulate"
+        ],
+        "summary": "Get a rate simulation.",
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/simulate"
+              }
+            }
           }
         }
       }
@@ -1280,6 +1306,316 @@
             }
           }
         }
+      },
+      "simulation-location": {
+        "type": "object",
+        "title": "The simulaiton location",
+        "default": {},
+        "examples": [
+          {
+            "addressId": "SFEhkfk8HM7C2JBdM",
+            "zipCode": "1830",
+            "countryCode": "BE"
+          }
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "addressId"
+            ]
+          },
+          {
+            "required": [
+              "zipCode",
+              "countryCode"
+            ]
+          }
+        ],
+        "properties": {
+          "addressId": {
+            "type": "string",
+            "title": "The addressId schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "SFEhkfk8HM7C2JBdM"
+            ]
+          },
+          "zipCode": {
+            "type": "string",
+            "title": "The zipCode schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "1830"
+            ]
+          },
+          "countryCode": {
+            "type": "string",
+            "title": "The countryCode schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "BE"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "simulate": {
+        "default": {},
+        "examples": [
+          {
+            "type": "simulate",
+            "env": {
+              "accountId": "S79207",
+              "userId": "K3hqjR5zBoDZRccEx",
+              "target": "test"
+            },
+            "request": {
+              "from": {
+                "addressId": "SFEhkfk8HM7C2JBdM",
+                "zipCode": "1830",
+                "countryCode": "BE"
+              },
+              "to": {
+                "addressId": "MaMofigJqNDo34NaK",
+                "zipCode": "46004",
+                "countryCode": "ES"
+              },
+              "date": "2018-10-30",
+              "goods": {
+                "quantity": {
+                  "kg": 10,
+                  "pal": 4
+                }
+              },
+              "equipments": [],
+              "targetCurrency": "EUR",
+              "accountId": "S79207",
+              "exchangeDate": "2018-10-30"
+            }
+          }
+        ],
+        "required": [
+          "type",
+          "env",
+          "request"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "default": "simulate",
+            "examples": [
+              "simulate"
+            ]
+          },
+          "env": {
+            "type": "object",
+            "default": {},
+            "examples": [
+              {
+                "accountId": "S79207",
+                "userId": "K3hqjR5zBoDZRccEx",
+                "target": "test"
+              }
+            ],
+            "required": [
+              "accountId",
+              "userId",
+              "target"
+            ],
+            "properties": {
+              "accountId": {
+                "type": "string",
+                "title": "The accountId ",
+                "examples": [
+                  "S79207"
+                ]
+              },
+              "userId": {
+                "type": "string",
+                "title": "The userId",
+                "examples": [
+                  "K3hqjR5zBoDZRccEx"
+                ]
+              },
+              "target": {
+                "type": "string",
+                "title": "The target ",
+                "description": "what db to use.",
+                "default": "test",
+                "examples": [
+                  "test",
+                  "live"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "request": {
+            "type": "object",
+            "title": "The request schema",
+            "description": "The details for the request.",
+            "default": {},
+            "examples": [
+              {
+                "from": {
+                  "addressId": "SFEhkfk8HM7C2JBdM",
+                  "zipCode": "1830",
+                  "countryCode": "BE"
+                },
+                "to": {
+                  "addressId": "MaMofigJqNDo34NaK",
+                  "zipCode": "46004",
+                  "countryCode": "ES"
+                },
+                "date": "2018-10-30",
+                "goods": {
+                  "quantity": {
+                    "kg": 10,
+                    "pal": 4
+                  }
+                },
+                "equipments": [],
+                "targetCurrency": "EUR",
+                "accountId": "S79207",
+                "exchangeDate": "2018-10-30"
+              }
+            ],
+            "required": [
+              "from",
+              "to",
+              "date",
+              "goods",
+              "equipments",
+              "targetCurrency",
+              "accountId",
+              "exchangeDate"
+            ],
+            "properties": {
+              "from": {
+                "$ref": "#/components/schemas/simulation-location"
+              },
+              "to": {
+                "$ref": "#/components/schemas/simulation-location"
+              },
+              "date": {
+                "type": "string",
+                "title": "The date schema",
+                "default": "",
+                "examples": [
+                  "2018-10-30"
+                ]
+              },
+              "goods": {
+                "type": "object",
+                "title": "The goods schema",
+                "default": {},
+                "examples": [
+                  {
+                    "quantity": {
+                      "kg": 10,
+                      "pal": 4
+                    }
+                  }
+                ],
+                "required": [
+                  "quantity"
+                ],
+                "properties": {
+                  "quantity": {
+                    "type": "object",
+                    "title": "The quantity schema",
+                    "default": {},
+                    "examples": [
+                      {
+                        "kg": 10,
+                        "pal": 4
+                      }
+                    ],
+                    "required": [
+                      "kg",
+                      "pal"
+                    ],
+                    "properties": {
+                      "kg": {
+                        "type": "integer",
+                        "title": "The kg schema",
+                        "default": 0,
+                        "examples": [
+                          10
+                        ]
+                      },
+                      "pal": {
+                        "type": "integer",
+                        "title": "The pal schema",
+                        "default": 0,
+                        "examples": [
+                          4
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "equipments": {
+                "type": "array",
+                "title": "The equipments schema",
+                "default": [],
+                "examples": [
+                  []
+                ],
+                "additionalItems": true,
+                "items": {
+                  "type": "object",
+                  "default": {},
+                  "examples": [
+                    [
+                      {
+                        "quantity": 1
+                      }
+                    ]
+                  ],
+                  "properties": {
+                    "quantity": {
+                      "type": "integer",
+                      "default": 1,
+                      "examples": [
+                        1
+                      ]
+                    }
+                  }
+                }
+              },
+              "targetCurrency": {
+                "type": "string",
+                "title": "The targetCurrency schema",
+                "default": "EUR",
+                "examples": [
+                  "EUR"
+                ]
+              },
+              "accountId": {
+                "type": "string",
+                "title": "The accountId schema",
+                "examples": [
+                  "S79207"
+                ]
+              },
+              "exchangeDate": {
+                "type": "string",
+                "title": "The exchangeDate schema",
+                "default": "",
+                "examples": [
+                  "2018-10-30"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
       },
       "sea-distance-from-to": {
         "anyOf": [

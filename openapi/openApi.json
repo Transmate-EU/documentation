@@ -26,7 +26,6 @@
       "url": "https://7b84f578.eu-de.apigw.appdomain.cloud",
       "description": "Live server"
     },
-
     {
       "url": "https://c99a35b8.eu-de.apigw.appdomain.cloud",
       "description": "Dev server"
@@ -44,6 +43,10 @@
     {
       "name": "Partner",
       "description": "Create or modify partnerships."
+    },
+    {
+      "name": "Simulate",
+      "description": "Simulate a transport rate."
     }
   ],
   "paths": {
@@ -57,7 +60,6 @@
         "parameters": [],
         "requestBody": {
           "description": "create or modify partnerships",
-         
           "content": {
             "application/json": {
               "schema": {
@@ -99,7 +101,6 @@
                   },
                   "type": "carrier",
                   "status": "active"
-                  
                 }
               }
             }
@@ -110,15 +111,11 @@
           "200": {
             "description": "",
             "headers": {}
-            
-              
-            }
-          ,
+          },
           "404": {
             "description": "Not Found",
             "content": {
               "application/json": {
-               
                 "example": {
                   "error": {
                     "code": "issue with function!",
@@ -130,13 +127,14 @@
           }
         },
         "deprecated": false
-        
       }
     },
     "/TransmateCustomerApi/shipment": {
       "post": {
         "operationId": "postShipment",
-        "tags": ["Shipment"],
+        "tags": [
+          "Shipment"
+        ],
         "summary": "create, modify and cancel shipments.",
         "security": [
           {
@@ -169,19 +167,41 @@
             "description": "Not Found"
           }
         }
-        
+      }
+    },
+    "/transmateapi/simulateRate": {
+      "post": {
+        "tags": [
+          "Simulate"
+        ],
+        "summary": "Get a rate simulation.",
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../transmateSchemas/restAPI/simulate/simulate.json"
+              }
+            }
+          }
+        }
       }
     },
     "/public/seaDistance": {
       "post": {
-        "tags": ["SeaDistance"],
+        "tags": [
+          "SeaDistance"
+        ],
         "summary": "Get the sea distance between two ports.",
         "security": [
           {
             "api_key": []
           }
         ],
-
         "requestBody": {
           "content": {
             "application/json": {
@@ -329,7 +349,9 @@
       "ErrorResponse": {
         "description": "Container object for one or more errors returned by the API.",
         "type": "object",
-        "required": ["errors"],
+        "required": [
+          "errors"
+        ],
         "properties": {
           "errors": {
             "type": "array",
@@ -342,7 +364,10 @@
       "Error": {
         "description": "An error object returned by the API.",
         "type": "object",
-        "required": ["status", "title"],
+        "required": [
+          "status",
+          "title"
+        ],
         "properties": {
           "status": {
             "type": "string",
