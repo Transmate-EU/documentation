@@ -138,7 +138,6 @@
         "summary": "create, modify and cancel shipments.",
         "security": [
           {
-            "api_key": [],
             "token": []
           }
         ],
