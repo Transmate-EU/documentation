@@ -139,7 +139,7 @@
         "security": [
           {
             "api_key": [],
-            "Authorization": "Bearer token"
+            "token": []
           }
         ],
         "requestBody": {
@@ -343,7 +343,13 @@
         "type": "apiKey",
         "in": "header",
         "name": "apiKey",
-        "description": "must be in header of request"
+        "description": "Used for internal apis, must be in header of request"
+      },
+      "token": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Token",
+        "description": "Customers will get a Authorization token that will need to be apended to Bearer"
       }
     },
     "schemas": {
