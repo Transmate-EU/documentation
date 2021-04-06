@@ -138,7 +138,8 @@
         "summary": "create, modify and cancel shipments.",
         "security": [
           {
-            "api_key": []
+            "api_key": [],
+            "Authorization": "Bearer token"
           }
         ],
         "requestBody": {
@@ -873,432 +874,437 @@
           },
           "request": {
             "type": "object",
-            "title": "shipment-api schema",
-            "required": [
-              "references",
-              "stages",
-              "items"
-            ],
             "properties": {
-              "status": {
-                "type": "string",
-                "title": "shipment status",
-                "default": "draft",
-                "enum": [
-                  "draft",
-                  "partial",
-                  "planned",
-                  "scheduled",
-                  "started",
-                  "completed",
-                  "canceled"
-                ],
-                "example": "draft"
-              },
-              "incoterm": {
-                "type": "string",
-                "title": "Incoterm",
-                "default": "CIP",
-                "enum": [
-                  "EXW",
-                  "FCA",
-                  "FAS",
-                  "FOB",
-                  "CFR",
-                  "CIF",
-                  "CPT",
-                  "CIP",
-                  "DAF",
-                  "DES",
-                  "DEQ",
-                  "DDU"
-                ],
-                "example": "FOB"
-              },
-              "references": {
+              "shipment": {
                 "type": "object",
-                "title": "The References Schema",
+                "title": "shipment-api schema",
                 "required": [
-                  "number"
+                  "references",
+                  "stages",
+                  "items"
                 ],
                 "properties": {
-                  "number": {
+                  "status": {
                     "type": "string",
-                    "title": "The Number Schema",
-                    "example": "Panalpina 2019-01 (source)|78598001881"
-                  }
-                }
-              },
-              "notes": {
-                "type": "object",
-                "properties": {
-                  "LoadingNotes": {
-                    "type": "string"
+                    "title": "shipment status",
+                    "default": "draft",
+                    "enum": [
+                      "draft",
+                      "partial",
+                      "planned",
+                      "scheduled",
+                      "started",
+                      "completed",
+                      "canceled"
+                    ],
+                    "example": "draft"
                   },
-                  "BookingNotes": {
-                    "type": "string"
-                  }
-                }
-              },
-              "costParams": {
-                "type": "object",
-                "properties": {
-                  "customsClearance": {
-                    "type": "boolean"
+                  "incoterm": {
+                    "type": "string",
+                    "title": "Incoterm",
+                    "default": "CIP",
+                    "enum": [
+                      "EXW",
+                      "FCA",
+                      "FAS",
+                      "FOB",
+                      "CFR",
+                      "CIF",
+                      "CPT",
+                      "CIP",
+                      "DAF",
+                      "DES",
+                      "DEQ",
+                      "DDU"
+                    ],
+                    "example": "FOB"
                   },
-                  "freeDays": {
+                  "references": {
+                    "type": "object",
+                    "title": "The References Schema",
+                    "required": [
+                      "number"
+                    ],
+                    "properties": {
+                      "number": {
+                        "type": "string",
+                        "title": "The Number Schema",
+                        "example": "Panalpina 2019-01 (source)|78598001881"
+                      }
+                    }
+                  },
+                  "notes": {
                     "type": "object",
                     "properties": {
-                      "condition": {
+                      "LoadingNotes": {
+                        "type": "string"
+                      },
+                      "BookingNotes": {
                         "type": "string"
                       }
                     }
-                  }
-                }
-              },
-              "stages": {
-                "type": "array",
-                "title": "Stages",
-                "items": {
-                  "type": "object",
-                  "title": "The Items Schema",
-                  "required": [
-                    "dates",
-                    "from",
-                    "to",
-                    "mode"
-                  ],
-                  "properties": {
-                    "dates": {
+                  },
+                  "costParams": {
+                    "type": "object",
+                    "properties": {
+                      "customsClearance": {
+                        "type": "boolean"
+                      },
+                      "freeDays": {
+                        "type": "object",
+                        "properties": {
+                          "condition": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "stages": {
+                    "type": "array",
+                    "title": "Stages",
+                    "items": {
                       "type": "object",
-                      "title": "The Dates Schema",
+                      "title": "The Items Schema",
                       "required": [
-                        "pickup",
-                        "delivery"
+                        "dates",
+                        "from",
+                        "to",
+                        "mode"
                       ],
                       "properties": {
-                        "pickup": {
+                        "dates": {
                           "type": "object",
-                          "title": "The Pickup Schema",
+                          "title": "The Dates Schema",
                           "required": [
-                            "arrival"
+                            "pickup",
+                            "delivery"
                           ],
                           "properties": {
-                            "arrival": {
+                            "pickup": {
                               "type": "object",
-                              "title": "The Arrival Schema",
+                              "title": "The Pickup Schema",
                               "required": [
-                                "planned"
+                                "arrival"
                               ],
                               "properties": {
-                                "planned": {
-                                  "type": "string",
-                                  "title": "The Planned Schema",
-                                  "format": "date-time",
-                                  "example": "2018-12-28T01:00:00.000+01:00",
-                                  "x-convert": true
-                                },
-                                "actual": {
-                                  "type": "string",
-                                  "format": "date-time",
-                                  "title": "The Actual Schema",
-                                  "example": "2018-12-28T01:00:00.000+01:00",
-                                  "x-convert": true
+                                "arrival": {
+                                  "type": "object",
+                                  "title": "The Arrival Schema",
+                                  "required": [
+                                    "planned"
+                                  ],
+                                  "properties": {
+                                    "planned": {
+                                      "type": "string",
+                                      "title": "The Planned Schema",
+                                      "format": "date-time",
+                                      "example": "2018-12-28T01:00:00.000+01:00",
+                                      "x-convert": true
+                                    },
+                                    "actual": {
+                                      "type": "string",
+                                      "format": "date-time",
+                                      "title": "The Actual Schema",
+                                      "example": "2018-12-28T01:00:00.000+01:00",
+                                      "x-convert": true
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "delivery": {
+                              "type": "object",
+                              "title": "delivery dates",
+                              "required": [
+                                "arrival"
+                              ],
+                              "properties": {
+                                "arrival": {
+                                  "type": "object",
+                                  "title": "The Arrival Schema",
+                                  "required": [
+                                    "planned"
+                                  ],
+                                  "properties": {
+                                    "actual": {
+                                      "type": "string",
+                                      "title": "The Actual Schema",
+                                      "format": "date-time",
+                                      "example": "2019-01-17T01:00:00.000+01:00",
+                                      "x-convert": true
+                                    },
+                                    "planned": {
+                                      "type": "string",
+                                      "title": "The Planned Schema",
+                                      "format": "date-time",
+                                      "example": "2019-01-17T01:00:00.000+01:00",
+                                      "x-convert": true
+                                    }
+                                  }
                                 }
                               }
                             }
                           }
                         },
-                        "delivery": {
+                        "from": {
                           "type": "object",
-                          "title": "delivery dates",
-                          "required": [
-                            "arrival"
-                          ],
-                          "properties": {
-                            "arrival": {
-                              "type": "object",
-                              "title": "The Arrival Schema",
-                              "required": [
-                                "planned"
-                              ],
-                              "properties": {
-                                "actual": {
-                                  "type": "string",
-                                  "title": "The Actual Schema",
-                                  "format": "date-time",
-                                  "example": "2019-01-17T01:00:00.000+01:00",
-                                  "x-convert": true
-                                },
-                                "planned": {
-                                  "type": "string",
-                                  "title": "The Planned Schema",
-                                  "format": "date-time",
-                                  "example": "2019-01-17T01:00:00.000+01:00",
-                                  "x-convert": true
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "from": {
-                      "type": "object",
-                      "title": "from location",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "example": "ABC"
-                        },
-                        "address": {
-                          "type": "object",
-                          "title": "address",
-                          "required": [
-                            "country"
-                          ],
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "example": "Wharehouse UK"
-                            },
-                            "zip": {
-                              "type": "string",
-                              "example": "9000"
-                            },
-                            "city": {
-                              "type": "string",
-                              "example": "Gent"
-                            },
-                            "country": {
-                              "type": "string",
-                              "title": "The Country Schema",
-                              "example": "BE"
-                            }
-                          }
-                        },
-                        "location": {
-                          "type": "object",
-                          "title": "The Location Schema",
-                          "required": [
-                            "locationCode"
-                          ],
-                          "properties": {
-                            "locationCode": {
-                              "type": "string",
-                              "title": "The Locationcode Schema",
-                              "example": "CNSGH"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "to": {
-                      "type": "object",
-                      "title": "The To Schema",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "example": "ABC"
-                        },
-                        "address": {
-                          "type": "object",
-                          "title": "The Address Schema",
-                          "required": [
-                            "country"
-                          ],
+                          "title": "from location",
                           "properties": {
                             "id": {
                               "type": "string",
                               "example": "ABC"
                             },
-                            "name": {
-                              "type": "string",
-                              "example": "Wharehouse UK"
+                            "address": {
+                              "type": "object",
+                              "title": "address",
+                              "required": [
+                                "country"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "example": "Wharehouse UK"
+                                },
+                                "zip": {
+                                  "type": "string",
+                                  "example": "9000"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "example": "Gent"
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "title": "The Country Schema",
+                                  "example": "BE"
+                                }
+                              }
                             },
-                            "zip": {
-                              "type": "string",
-                              "example": "9000"
-                            },
-                            "city": {
-                              "type": "string",
-                              "example": "Gent"
-                            },
-                            "country": {
-                              "type": "string",
-                              "title": "The Country Schema",
-                              "example": "BE"
+                            "location": {
+                              "type": "object",
+                              "title": "The Location Schema",
+                              "required": [
+                                "locationCode"
+                              ],
+                              "properties": {
+                                "locationCode": {
+                                  "type": "string",
+                                  "title": "The Locationcode Schema",
+                                  "example": "CNSGH"
+                                }
+                              }
                             }
                           }
                         },
-                        "location": {
+                        "to": {
                           "type": "object",
-                          "title": "The Location Schema",
-                          "required": [
-                            "locationCode"
-                          ],
+                          "title": "The To Schema",
                           "properties": {
-                            "locationCode": {
+                            "id": {
                               "type": "string",
-                              "title": "The Locationcode Schema",
-                              "example": "AEDXB"
+                              "example": "ABC"
+                            },
+                            "address": {
+                              "type": "object",
+                              "title": "The Address Schema",
+                              "required": [
+                                "country"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "example": "ABC"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Wharehouse UK"
+                                },
+                                "zip": {
+                                  "type": "string",
+                                  "example": "9000"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "example": "Gent"
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "title": "The Country Schema",
+                                  "example": "BE"
+                                }
+                              }
+                            },
+                            "location": {
+                              "type": "object",
+                              "title": "The Location Schema",
+                              "required": [
+                                "locationCode"
+                              ],
+                              "properties": {
+                                "locationCode": {
+                                  "type": "string",
+                                  "title": "The Locationcode Schema",
+                                  "example": "AEDXB"
+                                }
+                              }
                             }
                           }
-                        }
-                      }
-                    },
-                    "carrier": {
-                      "type": "object",
-                      "title": "The Carrier Schema",
-                      "required": [],
-                      "properties": {
-                        "id": {
+                        },
+                        "carrier": {
+                          "type": "object",
+                          "title": "The Carrier Schema",
+                          "required": [],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "title": "The Id Schema",
+                              "example": "C101094"
+                            }
+                          }
+                        },
+                        "mode": {
                           "type": "string",
-                          "title": "The Id Schema",
-                          "example": "C101094"
+                          "title": "The Mode Schema",
+                          "default": "road",
+                          "example": "ocean"
                         }
                       }
-                    },
-                    "mode": {
-                      "type": "string",
-                      "title": "The Mode Schema",
-                      "default": "road",
-                      "example": "ocean"
                     }
-                  }
-                }
-              },
-              "items": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "quantity",
-                    "quantity_unit"
-                  ],
-                  "properties": {
-                    "_id": {
-                      "type": "string"
-                    },
+                  },
+                  "items": {
+                    "type": "array",
                     "items": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/items"
-                      },
-                      "default": []
-                    },
-                    "quantity": {
-                      "type": "number"
-                    },
-                    "quantity_unit": {
-                      "type": "string"
-                    },
-                    "weight_net": {
-                      "type": "number"
-                    },
-                    "weight_gross": {
-                      "type": "number"
-                    },
-                    "weight_unit": {
-                      "type": "string",
-                      "default": "kg"
-                    },
-                    "volume": {
                       "type": "object",
+                      "required": [
+                        "quantity",
+                        "quantity_unit"
+                      ],
                       "properties": {
-                        "kg": {
+                        "_id": {
+                          "type": "string"
+                        },
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/items"
+                          },
+                          "default": []
+                        },
+                        "quantity": {
                           "type": "number"
                         },
-                        "lm": {
+                        "quantity_unit": {
+                          "type": "string"
+                        },
+                        "weight_net": {
                           "type": "number"
                         },
-                        "m3": {
+                        "weight_gross": {
                           "type": "number"
                         },
-                        "l": {
-                          "type": "number"
+                        "weight_unit": {
+                          "type": "string",
+                          "default": "kg"
                         },
-                        "pal": {
-                          "type": "number"
-                        }
-                      }
-                    },
-                    "shipmentId": {
-                      "type": "string"
-                    },
-                    "material": {
-                      "type": "object",
-                      "properties": {
+                        "volume": {
+                          "type": "object",
+                          "properties": {
+                            "kg": {
+                              "type": "number"
+                            },
+                            "lm": {
+                              "type": "number"
+                            },
+                            "m3": {
+                              "type": "number"
+                            },
+                            "l": {
+                              "type": "number"
+                            },
+                            "pal": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "shipmentId": {
+                          "type": "string"
+                        },
+                        "material": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "temperature": {
+                          "type": "object",
+                          "properties": {
+                            "condition": {
+                              "type": "string"
+                            },
+                            "range": {
+                              "type": "object",
+                              "properties": {
+                                "from": {
+                                  "type": "number"
+                                },
+                                "to": {
+                                  "type": "number"
+                                },
+                                "unit": {
+                                  "type": "string",
+                                  "default": "C"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "edi": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "dimensions": {
+                          "type": "object",
+                          "properties": {
+                            "width": {
+                              "type": "number"
+                            },
+                            "height": {
+                              "type": "number"
+                            },
+                            "length": {
+                              "type": "number"
+                            },
+                            "uom": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "number": {
+                          "type": "string"
+                        },
                         "description": {
                           "type": "string"
                         },
-                        "id": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "temperature": {
-                      "type": "object",
-                      "properties": {
-                        "condition": {
+                        "commodity": {
                           "type": "string"
                         },
-                        "range": {
+                        "adr": {
+                          "type": "boolean"
+                        },
+                        "classType": {
+                          "type": "number"
+                        },
+                        "reference": {
                           "type": "object",
-                          "properties": {
-                            "from": {
-                              "type": "number"
-                            },
-                            "to": {
-                              "type": "number"
-                            },
-                            "unit": {
-                              "type": "string",
-                              "default": "C"
-                            }
-                          }
+                          "properties": {}
                         }
                       }
-                    },
-                    "edi": {
-                      "type": "object",
-                      "properties": {}
-                    },
-                    "dimensions": {
-                      "type": "object",
-                      "properties": {
-                        "width": {
-                          "type": "number"
-                        },
-                        "height": {
-                          "type": "number"
-                        },
-                        "length": {
-                          "type": "number"
-                        },
-                        "uom": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "number": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "commodity": {
-                      "type": "string"
-                    },
-                    "adr": {
-                      "type": "boolean"
-                    },
-                    "classType": {
-                      "type": "number"
-                    },
-                    "reference": {
-                      "type": "object",
-                      "properties": {}
                     }
                   }
                 }

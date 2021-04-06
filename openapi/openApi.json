@@ -138,7 +138,8 @@
         "summary": "create, modify and cancel shipments.",
         "security": [
           {
-            "api_key": []
+            "api_key": [],
+            "Authorization": "Bearer token"
           }
         ],
         "requestBody": {
