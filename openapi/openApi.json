@@ -342,7 +342,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "apiKey",
-        "description": "Used for internal apis, must be in header of request"
+        "description": "Used for internal api's, must be in header of request"
       },
       "token": {
         "type": "apiKey",

@@ -340,7 +340,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "apiKey",
-        "description": "Used for internal apis, must be in header of request"
+        "description": "Used for internal api's, must be in header of request"
       },
       "token": {
         "type": "apiKey",
@@ -893,6 +893,9 @@
                     "type": "string",
                     "title": "shipment status",
                     "default": "draft",
+                    "example": [
+                      "draft"
+                    ],
                     "enum": [
                       "draft",
                       "partial",
@@ -901,13 +904,15 @@
                       "started",
                       "completed",
                       "canceled"
-                    ],
-                    "example": "draft"
+                    ]
                   },
                   "incoterm": {
                     "type": "string",
                     "title": "Incoterm",
                     "default": "CIP",
+                    "example": [
+                      "FOB"
+                    ],
                     "enum": [
                       "EXW",
                       "FCA",
@@ -921,8 +926,7 @@
                       "DES",
                       "DEQ",
                       "DDU"
-                    ],
-                    "example": "FOB"
+                    ]
                   },
                   "references": {
                     "type": "object",
@@ -934,7 +938,9 @@
                       "number": {
                         "type": "string",
                         "title": "The Number Schema",
-                        "example": "Panalpina 2019-01 (source)|78598001881"
+                        "example": [
+                          "Panalpina 2019-01 (source)|78598001881"
+                        ]
                       }
                     }
                   },
@@ -1004,14 +1010,18 @@
                                       "type": "string",
                                       "title": "The Planned Schema",
                                       "format": "date-time",
-                                      "example": "2018-12-28T01:00:00.000+01:00",
+                                      "example": [
+                                        "2018-12-28T01:00:00.000+01:00"
+                                      ],
                                       "x-convert": true
                                     },
                                     "actual": {
                                       "type": "string",
                                       "format": "date-time",
                                       "title": "The Actual Schema",
-                                      "example": "2018-12-28T01:00:00.000+01:00",
+                                      "example": [
+                                        "2018-12-28T01:00:00.000+01:00"
+                                      ],
                                       "x-convert": true
                                     }
                                   }
@@ -1036,14 +1046,18 @@
                                       "type": "string",
                                       "title": "The Actual Schema",
                                       "format": "date-time",
-                                      "example": "2019-01-17T01:00:00.000+01:00",
+                                      "example": [
+                                        "2019-01-17T01:00:00.000+01:00"
+                                      ],
                                       "x-convert": true
                                     },
                                     "planned": {
                                       "type": "string",
                                       "title": "The Planned Schema",
                                       "format": "date-time",
-                                      "example": "2019-01-17T01:00:00.000+01:00",
+                                      "example": [
+                                        "2019-01-17T01:00:00.000+01:00"
+                                      ],
                                       "x-convert": true
                                     }
                                   }
@@ -1058,7 +1072,8 @@
                           "properties": {
                             "id": {
                               "type": "string",
-                              "example": "ABC"
+                              "default": null,
+                              "example": []
                             },
                             "address": {
                               "type": "object",
@@ -1069,20 +1084,34 @@
                               "properties": {
                                 "name": {
                                   "type": "string",
-                                  "example": "Wharehouse UK"
+                                  "example": [
+                                    "Wharehouse UK"
+                                  ]
                                 },
                                 "zip": {
                                   "type": "string",
-                                  "example": "9000"
+                                  "example": [
+                                    "9000"
+                                  ]
                                 },
                                 "city": {
                                   "type": "string",
-                                  "example": "Gent"
+                                  "example": [
+                                    "Gent"
+                                  ]
+                                },
+                                "street": {
+                                  "type": "string",
+                                  "example": [
+                                    "Kerkplein"
+                                  ]
                                 },
                                 "country": {
                                   "type": "string",
                                   "title": "The Country Schema",
-                                  "example": "BE"
+                                  "example": [
+                                    "BE"
+                                  ]
                                 }
                               }
                             },
@@ -1096,7 +1125,9 @@
                                 "locationCode": {
                                   "type": "string",
                                   "title": "The Locationcode Schema",
-                                  "example": "CNSGH"
+                                  "example": [
+                                    "CNSGH"
+                                  ]
                                 }
                               }
                             }
@@ -1108,7 +1139,8 @@
                           "properties": {
                             "id": {
                               "type": "string",
-                              "example": "ABC"
+                              "default": null,
+                              "example": []
                             },
                             "address": {
                               "type": "object",
@@ -1117,26 +1149,36 @@
                                 "country"
                               ],
                               "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "example": "ABC"
-                                },
                                 "name": {
                                   "type": "string",
-                                  "example": "Wharehouse UK"
+                                  "example": [
+                                    "Wharehouse UK"
+                                  ]
                                 },
                                 "zip": {
                                   "type": "string",
-                                  "example": "9000"
+                                  "example": [
+                                    "9000"
+                                  ]
                                 },
                                 "city": {
                                   "type": "string",
-                                  "example": "Gent"
+                                  "example": [
+                                    "Gent"
+                                  ]
+                                },
+                                "street": {
+                                  "type": "string",
+                                  "example": [
+                                    "Kerkplein"
+                                  ]
                                 },
                                 "country": {
                                   "type": "string",
                                   "title": "The Country Schema",
-                                  "example": "BE"
+                                  "example": [
+                                    "BE"
+                                  ]
                                 }
                               }
                             },
@@ -1150,7 +1192,9 @@
                                 "locationCode": {
                                   "type": "string",
                                   "title": "The Locationcode Schema",
-                                  "example": "AEDXB"
+                                  "example": [
+                                    "AEDXB"
+                                  ]
                                 }
                               }
                             }
@@ -1164,7 +1208,9 @@
                             "id": {
                               "type": "string",
                               "title": "The Id Schema",
-                              "example": "C101094"
+                              "example": [
+                                "C101094"
+                              ]
                             }
                           }
                         },
@@ -1172,7 +1218,11 @@
                           "type": "string",
                           "title": "The Mode Schema",
                           "default": "road",
-                          "example": "ocean"
+                          "example": [
+                            "ocean",
+                            "road",
+                            "air"
+                          ]
                         }
                       }
                     }
@@ -1322,7 +1372,7 @@
         "type": "object",
         "title": "The simulaiton location",
         "default": {},
-        "examples": [
+        "example": [
           {
             "addressId": "SFEhkfk8HM7C2JBdM",
             "zipCode": "1830",
@@ -1348,7 +1398,7 @@
             "title": "The addressId schema",
             "description": "An explanation about the purpose of this instance.",
             "default": "",
-            "examples": [
+            "example": [
               "SFEhkfk8HM7C2JBdM"
             ]
           },
@@ -1357,7 +1407,7 @@
             "title": "The zipCode schema",
             "description": "An explanation about the purpose of this instance.",
             "default": "",
-            "examples": [
+            "example": [
               "1830"
             ]
           },
@@ -1366,7 +1416,7 @@
             "title": "The countryCode schema",
             "description": "An explanation about the purpose of this instance.",
             "default": "",
-            "examples": [
+            "example": [
               "BE"
             ]
           }
@@ -1375,7 +1425,7 @@
       },
       "simulate": {
         "default": {},
-        "examples": [
+        "example": [
           {
             "type": "simulate",
             "env": {
@@ -1417,14 +1467,14 @@
           "type": {
             "type": "string",
             "default": "simulate",
-            "examples": [
+            "example": [
               "simulate"
             ]
           },
           "env": {
             "type": "object",
             "default": {},
-            "examples": [
+            "example": [
               {
                 "accountId": "S79207",
                 "userId": "K3hqjR5zBoDZRccEx",
@@ -1440,14 +1490,14 @@
               "accountId": {
                 "type": "string",
                 "title": "The accountId ",
-                "examples": [
+                "example": [
                   "S79207"
                 ]
               },
               "userId": {
                 "type": "string",
                 "title": "The userId",
-                "examples": [
+                "example": [
                   "K3hqjR5zBoDZRccEx"
                 ]
               },
@@ -1456,7 +1506,7 @@
                 "title": "The target ",
                 "description": "what db to use.",
                 "default": "test",
-                "examples": [
+                "example": [
                   "test",
                   "live"
                 ]
@@ -1469,7 +1519,7 @@
             "title": "The request schema",
             "description": "The details for the request.",
             "default": {},
-            "examples": [
+            "example": [
               {
                 "from": {
                   "addressId": "SFEhkfk8HM7C2JBdM",
@@ -1514,14 +1564,14 @@
               "date": {
                 "type": "string",
                 "title": "The date schema",
-                "examples": [
+                "example": [
                   "2018-10-30"
                 ]
               },
               "goods": {
                 "type": "object",
                 "default": {},
-                "examples": [
+                "example": [
                   {
                     "quantity": {
                       "kg": 10,
@@ -1537,7 +1587,7 @@
                     "type": "object",
                     "title": "The taxable quanttities",
                     "default": {},
-                    "examples": [
+                    "example": [
                       {
                         "kg": 10,
                         "pal": 4
@@ -1552,7 +1602,7 @@
                         "type": "integer",
                         "title": "The kg schema",
                         "default": 0,
-                        "examples": [
+                        "example": [
                           10
                         ]
                       },
@@ -1560,7 +1610,7 @@
                         "type": "integer",
                         "title": "The pal schema",
                         "default": 0,
-                        "examples": [
+                        "example": [
                           4
                         ]
                       }
@@ -1572,7 +1622,7 @@
                 "type": "array",
                 "title": "The equipments schema",
                 "default": [],
-                "examples": [
+                "example": [
                   []
                 ],
                 "additionalItems": true,
@@ -1580,7 +1630,7 @@
                   "type": "object",
                   "additionalProperties": true,
                   "default": {},
-                  "examples": [
+                  "example": [
                     [
                       {
                         "quantity": 1
@@ -1591,7 +1641,7 @@
                     "quantity": {
                       "type": "integer",
                       "default": 1,
-                      "examples": [
+                      "example": [
                         1
                       ]
                     }
@@ -1602,21 +1652,21 @@
                 "type": "string",
                 "title": "The targetCurrency schema",
                 "default": "EUR",
-                "examples": [
+                "example": [
                   "EUR"
                 ]
               },
               "accountId": {
                 "type": "string",
                 "title": "The accountId schema",
-                "examples": [
+                "example": [
                   "S79207"
                 ]
               },
               "exchangeDate": {
                 "type": "string",
                 "title": "The exchangeDate schema",
-                "examples": [
+                "example": [
                   "2018-10-30"
                 ]
               }
