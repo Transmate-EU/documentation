@@ -765,6 +765,18 @@
               }
             }
           },
+          "declarationAmount": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string",
+                "default": "EUR"
+              }
+            }
+          },
           "temperature": {
             "type": "object",
             "properties": {
@@ -925,7 +937,10 @@
                       "DAF",
                       "DES",
                       "DEQ",
-                      "DDU"
+                      "DDU",
+                      "DAT",
+                      "DAP",
+                      "DDP"
                     ]
                   },
                   "references": {
@@ -1075,6 +1090,18 @@
                               "default": null,
                               "example": []
                             },
+                            "phoneNumber": {
+                              "type": "string",
+                              "example": [
+                                "+32499878787"
+                              ]
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": [
+                                "customer@test.com"
+                              ]
+                            },
                             "address": {
                               "type": "object",
                               "title": "address",
@@ -1141,6 +1168,18 @@
                               "type": "string",
                               "default": null,
                               "example": []
+                            },
+                            "phoneNumber": {
+                              "type": "string",
+                              "example": [
+                                "+32499878787"
+                              ]
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": [
+                                "customer@test.com"
+                              ]
                             },
                             "address": {
                               "type": "object",
@@ -1293,6 +1332,18 @@
                             },
                             "id": {
                               "type": "string"
+                            }
+                          }
+                        },
+                        "declarationAmount": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "default": "EUR"
                             }
                           }
                         },
