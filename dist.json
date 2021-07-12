@@ -827,8 +827,25 @@
           "description": {
             "type": "string"
           },
+          "notes": {
+            "type": "string"
+          },
           "commodity": {
             "type": "string"
+          },
+          "customs": {
+            "type": "object",
+            "properties": {
+              "hScode": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              }
+            }
           },
           "adr": {
             "type": "boolean"
@@ -1397,8 +1414,25 @@
                         "description": {
                           "type": "string"
                         },
+                        "notes": {
+                          "type": "string"
+                        },
                         "commodity": {
                           "type": "string"
+                        },
+                        "customs": {
+                          "type": "object",
+                          "properties": {
+                            "hScode": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "number"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          }
                         },
                         "adr": {
                           "type": "boolean"
