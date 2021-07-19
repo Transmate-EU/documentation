@@ -836,7 +836,7 @@
           "customs": {
             "type": "object",
             "properties": {
-              "hScode": {
+              "HScode": {
                 "type": "string"
               },
               "value": {
@@ -1423,7 +1423,7 @@
                         "customs": {
                           "type": "object",
                           "properties": {
-                            "hScode": {
+                            "HScode": {
                               "type": "string"
                             },
                             "value": {
