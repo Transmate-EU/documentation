@@ -136,6 +136,7 @@
           "Shipment"
         ],
         "summary": "create, modify and cancel shipments.",
+        "description": "you can create a transmate shipment with this api. Only send keys with values , do not send empty strings or null values.",
         "security": [
           {
             "token": []

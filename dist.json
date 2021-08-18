@@ -136,6 +136,7 @@
           "Shipment"
         ],
         "summary": "create, modify and cancel shipments.",
+        "description": "you can create a transmate shipment with this api. Only send keys with values , do not send empty strings or null values.",
         "security": [
           {
             "token": []
@@ -839,6 +840,9 @@
               "HScode": {
                 "type": "string"
               },
+              "countryOfOrigin": {
+                "type": "string"
+              },
               "value": {
                 "type": "number"
               },
@@ -851,7 +855,9 @@
             "type": "boolean"
           },
           "classType": {
-            "type": "number"
+            "description": "the class type only if it are adr goods, an integer from 1 to 9.",
+            "type": "number",
+            "minimum": 1
           },
           "reference": {
             "type": "object",
@@ -1426,6 +1432,9 @@
                             "HScode": {
                               "type": "string"
                             },
+                            "countryOfOrigin": {
+                              "type": "string"
+                            },
                             "value": {
                               "type": "number"
                             },
@@ -1438,7 +1447,9 @@
                           "type": "boolean"
                         },
                         "classType": {
-                          "type": "number"
+                          "description": "the class type only if it are adr goods, an integer from 1 to 9.",
+                          "type": "number",
+                          "minimum": 1
                         },
                         "reference": {
                           "type": "object",
