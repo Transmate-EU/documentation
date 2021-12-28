@@ -11,6 +11,7 @@
   "private": true,
   "scripts": {
     "start": "openapi preview-docs",
+    "postinstall": "git submodule init && git submodule update --init  --recursive",
     "setup-schemas": "node openapi/setup/schemaSetup.js",
     "build": "openapi bundle -o dist",
     "test": "openapi lint",

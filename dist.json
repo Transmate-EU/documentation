@@ -478,6 +478,17 @@
                 "title": "The Name Schema",
                 "example": "City Of London Courier Ltd"
               },
+              "ratings": {
+                "type": "object",
+                "title": "The rating of the partnership",
+                "properties": {
+                  "average": {
+                    "type": "number",
+                    "title": "The average rating",
+                    "example": 4.5
+                  }
+                }
+              },
               "description": {
                 "type": "string",
                 "title": "The Description Schema",
@@ -1153,7 +1164,19 @@
                                 "street": {
                                   "type": "string",
                                   "example": [
-                                    "Kerkplein"
+                                    "Kerkplein 15"
+                                  ]
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "example": [
+                                    "appartement 201"
+                                  ]
+                                },
+                                "address2": {
+                                  "type": "string",
+                                  "example": [
+                                    "Jan C"
                                   ]
                                 },
                                 "country": {
@@ -1232,7 +1255,19 @@
                                 "street": {
                                   "type": "string",
                                   "example": [
-                                    "Kerkplein"
+                                    "Markt 5"
+                                  ]
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "example": [
+                                    "building 3"
+                                  ]
+                                },
+                                "address2": {
+                                  "type": "string",
+                                  "example": [
+                                    "Philip P"
                                   ]
                                 },
                                 "country": {
