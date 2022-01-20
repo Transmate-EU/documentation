@@ -939,9 +939,6 @@
                     "type": "string",
                     "title": "shipment status",
                     "default": "draft",
-                    "example": [
-                      "draft"
-                    ],
                     "enum": [
                       "draft",
                       "partial",
@@ -950,15 +947,13 @@
                       "started",
                       "completed",
                       "canceled"
-                    ]
+                    ],
+                    "example": "draft"
                   },
                   "incoterm": {
                     "type": "string",
                     "title": "Incoterm",
                     "default": "CIP",
-                    "example": [
-                      "FOB"
-                    ],
                     "enum": [
                       "EXW",
                       "FCA",
@@ -975,7 +970,8 @@
                       "DAT",
                       "DAP",
                       "DDP"
-                    ]
+                    ],
+                    "example": "FOB"
                   },
                   "references": {
                     "type": "object",
@@ -987,9 +983,7 @@
                       "number": {
                         "type": "string",
                         "title": "The Number Schema",
-                        "example": [
-                          "Panalpina 2019-01 (source)|78598001881"
-                        ]
+                        "example": "Panalpina 2019-01 (source)|78598001881"
                       }
                     }
                   },
@@ -1068,18 +1062,14 @@
                                       "type": "string",
                                       "title": "The Planned Schema",
                                       "format": "date-time",
-                                      "example": [
-                                        "2018-12-28T01:00:00.000+01:00"
-                                      ],
+                                      "example": "2018-12-28T01:00:00.000+01:00",
                                       "x-convert": true
                                     },
                                     "actual": {
                                       "type": "string",
                                       "format": "date-time",
                                       "title": "The Actual Schema",
-                                      "example": [
-                                        "2018-12-28T01:00:00.000+01:00"
-                                      ],
+                                      "example": "2018-12-28T01:00:00.000+01:00",
                                       "x-convert": true
                                     }
                                   }
@@ -1104,18 +1094,14 @@
                                       "type": "string",
                                       "title": "The Actual Schema",
                                       "format": "date-time",
-                                      "example": [
-                                        "2019-01-17T01:00:00.000+01:00"
-                                      ],
+                                      "example": "2019-01-17T01:00:00.000+01:00",
                                       "x-convert": true
                                     },
                                     "planned": {
                                       "type": "string",
                                       "title": "The Planned Schema",
                                       "format": "date-time",
-                                      "example": [
-                                        "2019-01-17T01:00:00.000+01:00"
-                                      ],
+                                      "example": "2019-01-17T01:00:00.000+01:00",
                                       "x-convert": true
                                     }
                                   }
@@ -1130,20 +1116,15 @@
                           "properties": {
                             "id": {
                               "type": "string",
-                              "default": null,
-                              "example": []
+                              "default": null
                             },
                             "phoneNumber": {
                               "type": "string",
-                              "example": [
-                                "+32499878787"
-                              ]
+                              "example": "+32499878787"
                             },
                             "email": {
                               "type": "string",
-                              "example": [
-                                "customer@test.com"
-                              ]
+                              "example": "customer@test.com"
                             },
                             "address": {
                               "type": "object",
@@ -1154,46 +1135,32 @@
                               "properties": {
                                 "name": {
                                   "type": "string",
-                                  "example": [
-                                    "Wharehouse UK"
-                                  ]
+                                  "example": "Wharehouse UK"
                                 },
                                 "zip": {
                                   "type": "string",
-                                  "example": [
-                                    "9000"
-                                  ]
+                                  "example": "9000"
                                 },
                                 "city": {
                                   "type": "string",
-                                  "example": [
-                                    "Gent"
-                                  ]
+                                  "example": "Gent"
                                 },
                                 "street": {
                                   "type": "string",
-                                  "example": [
-                                    "Kerkplein 15"
-                                  ]
+                                  "example": "Kerkplein 15"
                                 },
                                 "address1": {
                                   "type": "string",
-                                  "example": [
-                                    "appartement 201"
-                                  ]
+                                  "example": "appartement 201"
                                 },
                                 "address2": {
                                   "type": "string",
-                                  "example": [
-                                    "Jan C"
-                                  ]
+                                  "example": "Jan C"
                                 },
                                 "country": {
                                   "type": "string",
                                   "title": "The Country Schema",
-                                  "example": [
-                                    "BE"
-                                  ]
+                                  "example": "BE"
                                 }
                               }
                             },
@@ -1207,9 +1174,7 @@
                                 "locationCode": {
                                   "type": "string",
                                   "title": "The Locationcode Schema",
-                                  "example": [
-                                    "CNSGH"
-                                  ]
+                                  "example": "CNSGH"
                                 }
                               }
                             }
@@ -1221,20 +1186,15 @@
                           "properties": {
                             "id": {
                               "type": "string",
-                              "default": null,
-                              "example": []
+                              "default": null
                             },
                             "phoneNumber": {
                               "type": "string",
-                              "example": [
-                                "+32499878787"
-                              ]
+                              "example": "+32499878787"
                             },
                             "email": {
                               "type": "string",
-                              "example": [
-                                "customer@test.com"
-                              ]
+                              "example": "customer@test.com"
                             },
                             "address": {
                               "type": "object",
@@ -1245,46 +1205,32 @@
                               "properties": {
                                 "name": {
                                   "type": "string",
-                                  "example": [
-                                    "Wharehouse UK"
-                                  ]
+                                  "example": "Wharehouse UK"
                                 },
                                 "zip": {
                                   "type": "string",
-                                  "example": [
-                                    "9000"
-                                  ]
+                                  "example": "9000"
                                 },
                                 "city": {
                                   "type": "string",
-                                  "example": [
-                                    "Gent"
-                                  ]
+                                  "example": "Gent"
                                 },
                                 "street": {
                                   "type": "string",
-                                  "example": [
-                                    "Markt 5"
-                                  ]
+                                  "example": "Markt 5"
                                 },
                                 "address1": {
                                   "type": "string",
-                                  "example": [
-                                    "building 3"
-                                  ]
+                                  "example": "building 3"
                                 },
                                 "address2": {
                                   "type": "string",
-                                  "example": [
-                                    "Philip P"
-                                  ]
+                                  "example": "Philip P"
                                 },
                                 "country": {
                                   "type": "string",
                                   "title": "The Country Schema",
-                                  "example": [
-                                    "BE"
-                                  ]
+                                  "example": "BE"
                                 }
                               }
                             },
@@ -1298,9 +1244,7 @@
                                 "locationCode": {
                                   "type": "string",
                                   "title": "The Locationcode Schema",
-                                  "example": [
-                                    "AEDXB"
-                                  ]
+                                  "example": "AEDXB"
                                 }
                               }
                             }
@@ -1314,9 +1258,7 @@
                             "id": {
                               "type": "string",
                               "title": "The Id Schema",
-                              "example": [
-                                "C101094"
-                              ]
+                              "example": "C101094"
                             }
                           }
                         },
@@ -1324,11 +1266,7 @@
                           "type": "string",
                           "title": "The Mode Schema",
                           "default": "road",
-                          "example": [
-                            "ocean",
-                            "road",
-                            "air"
-                          ]
+                          "example": "ocean"
                         }
                       }
                     }
