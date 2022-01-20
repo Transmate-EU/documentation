@@ -1010,6 +1010,15 @@
                       "customsClearance": {
                         "type": "boolean"
                       },
+                      "services": {
+                        "type": "array",
+                        "title": "The services for this shipment",
+                        "items": {
+                          "type": "string",
+                          "title": "service type",
+                          "example": "container"
+                        }
+                      },
                       "freeDays": {
                         "type": "object",
                         "properties": {
