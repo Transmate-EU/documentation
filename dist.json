@@ -417,8 +417,8 @@
       "token": {
         "type": "apiKey",
         "in": "header",
-        "name": "Token",
-        "description": "Customers will get a Authorization token that will need to be apended to Bearer"
+        "name": "Authorization",
+        "description": "Customers will get a Authorization token that will need to be apended to 'Bearer ', it contains a userId, accountId and a target."
       }
     },
     "schemas": {
@@ -1574,16 +1574,26 @@
             }
           }
         ],
+        "example": [
+          {
+            "type": "invoice",
+            "request": {
+              "invoiceId": "GSvTS5mw4rDxfJzuT"
+            }
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
-            "default": "invoice"
+            "default": "invoice",
+            "example": "invoice"
           },
           "request": {
             "type": "object",
             "properties": {
               "invoiceId": {
-                "type": "string"
+                "type": "string",
+                "example": "GSvTS5mw4rDxfJzuT"
               }
             }
           }
@@ -1631,16 +1641,33 @@
             }
           }
         ],
+        "example": [
+          {
+            "type": "invoices",
+            "request": {
+              "filter": {
+                "showSynce": true
+              }
+            }
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
-            "default": "invoices"
+            "default": "invoices",
+            "example": "invoices"
           },
           "request": {
             "type": "object",
             "properties": {
               "filter": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "showSynced": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
               }
             }
           }
