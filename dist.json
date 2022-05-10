@@ -174,8 +174,8 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/invoice": {
-      "get": {
+    "/TransmateCustomerApi/invoices/get": {
+      "post": {
         "operationId": "getInvoice",
         "tags": [
           "Invoice"
@@ -195,9 +195,11 @@
             }
           }
         }
-      },
-      "put": {
-        "operationId": "putInvoice",
+      }
+    },
+    "/TransmateCustomerApi/invoices/flag": {
+      "post": {
+        "operationId": "updateInvoice",
         "tags": [
           "Invoice"
         ],
@@ -218,8 +220,8 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/invoices": {
-      "get": {
+    "/TransmateCustomerApi/invoices/list": {
+      "post": {
         "operationId": "getInvoices",
         "tags": [
           "Invoice"
@@ -1646,7 +1648,7 @@
             "type": "invoices",
             "request": {
               "filter": {
-                "showSynce": true
+                "showSynced": true
               }
             }
           }
