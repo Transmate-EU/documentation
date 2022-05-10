@@ -12,6 +12,8 @@
   "scripts": {
     "start": "openapi preview-docs",
     "postinstall": "git submodule init && git submodule update --init  --recursive",
+    "remove-schemas":"git submodule deinit transmateSchemas && git rm transmateSchemas && git commit -m 'Remove schemas'",
+    "add-schemas":"git submodle add Transmate-EU/transmateSchemas",
     "setup-schemas": "node openapi/setup/schemaSetup.js",
     "build": "openapi bundle -o dist",
     "test": "openapi lint",
