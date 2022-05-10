@@ -47,6 +47,10 @@
     {
       "name": "Simulate",
       "description": "Simulate a transport rate."
+    },
+    {
+      "name": "Invoice",
+      "description": "Interact with invoices."
     }
   ],
   "paths": {
@@ -166,6 +170,73 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/TransmateCustomerApi/invoices/invoice": {
+      "get": {
+        "operationId": "getInvoice",
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "get details of 1 invoice.",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../schemas/invoiceSchema.json"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "putInvoice",
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "set 1 invoice as synced.",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../schemas/invoiceSchema.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/TransmateCustomerApi/invoices/invoices": {
+      "get": {
+        "operationId": "getInvoices",
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "get list of all invoices linked to the account.",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../schemas/invoicesSchema.json"
+              }
+            }
           }
         }
       }
@@ -348,8 +419,8 @@
       "token": {
         "type": "apiKey",
         "in": "header",
-        "name": "Token",
-        "description": "Customers will get a Authorization token that will need to be apended to Bearer"
+        "name": "Authorization",
+        "description": "Customers will get a Authorization token that will need to be apended to 'Bearer ', it contains a userId, accountId and a target."
       }
     },
     "schemas": {

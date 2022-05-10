@@ -47,6 +47,10 @@
     {
       "name": "Simulate",
       "description": "Simulate a transport rate."
+    },
+    {
+      "name": "Invoice",
+      "description": "Interact with invoices."
     }
   ],
   "paths": {
@@ -166,6 +170,73 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/TransmateCustomerApi/invoices/invoice": {
+      "get": {
+        "operationId": "getInvoice",
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "get details of 1 invoice.",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/invoiceSchema"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "putInvoice",
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "set 1 invoice as synced.",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/invoiceSchema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/TransmateCustomerApi/invoices/invoices": {
+      "get": {
+        "operationId": "getInvoices",
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "get list of all invoices linked to the account.",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/invoicesSchema"
+              }
+            }
           }
         }
       }
@@ -417,7 +488,7 @@
             "properties": {
               "type": {
                 "type": "string",
-                "title": "The type of import",
+                "title": "The type of call",
                 "example": "shipment"
               },
               "version": {
@@ -888,7 +959,7 @@
             "properties": {
               "type": {
                 "type": "string",
-                "title": "The type of import",
+                "title": "The type of call",
                 "example": "shipment"
               },
               "version": {
@@ -1271,6 +1342,21 @@
                       }
                     }
                   },
+                  "partners": {
+                    "type": "object",
+                    "title": "Additional shipment partners",
+                    "properties": {
+                      "shipperId": {
+                        "type": "string"
+                      },
+                      "consigneeId": {
+                        "type": "string"
+                      }
+                    },
+                    "example": {
+                      "shipperId": "S123456"
+                    }
+                  },
                   "items": {
                     "type": "array",
                     "items": {
@@ -1441,6 +1527,120 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "invoiceSchema": {
+        "allOf": [
+          {
+            "type": "object",
+            "title": "The imports-api-transmate function Schema",
+            "required": [
+              "type",
+              "request"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "title": "The type of call",
+                "example": "shipment"
+              },
+              "version": {
+                "type": "number",
+                "title": "The api verion",
+                "example": "1"
+              },
+              "request": {
+                "type": "object",
+                "title": "The request (shipment/invoice/postcode)"
+              },
+              "env": {
+                "type": "object",
+                "title": "The environment settings (can come from jwt)",
+                "properties": {
+                  "accountId": {
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "default": "invoice"
+          },
+          "request": {
+            "type": "object",
+            "properties": {
+              "invoiceId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "invoicesSchema": {
+        "allOf": [
+          {
+            "type": "object",
+            "title": "The imports-api-transmate function Schema",
+            "required": [
+              "type",
+              "request"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "title": "The type of call",
+                "example": "shipment"
+              },
+              "version": {
+                "type": "number",
+                "title": "The api verion",
+                "example": "1"
+              },
+              "request": {
+                "type": "object",
+                "title": "The request (shipment/invoice/postcode)"
+              },
+              "env": {
+                "type": "object",
+                "title": "The environment settings (can come from jwt)",
+                "properties": {
+                  "accountId": {
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "default": "invoices"
+          },
+          "request": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object"
               }
             }
           }

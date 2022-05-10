@@ -4,8 +4,9 @@ const $RefParser = require("@apidevtools/json-schema-ref-parser");
 
 const shipmentSchema = require("../../transmateSchemas/restAPI/requests/shipmentRequest.json");
 const partnerSchema = require("../../transmateSchemas/restAPI/requests/accountRequest.json");
-const simulationSchema = require("../../transmateSchemas/restAPI/simulate/simulate.json");
-const schemas = { shipmentSchema, partnerSchema };
+const invoiceSchema = require("../../transmateSchemas/restAPI/requests/invoiceRequest.json");
+const invoicesSchema = require("../../transmateSchemas/restAPI/requests/invoicesRequest.json");
+const schemas = { shipmentSchema, partnerSchema, invoiceSchema, invoicesSchema };
 
 
 
