@@ -20,3 +20,7 @@ Validates the definition.
 
 
 url : https://transmate-eu.github.io/documentation/
+
+more information on usage:
+
+https://redocly.com/redoc/

@@ -113,7 +113,7 @@
         },
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "headers": {}
           },
           "404": {
@@ -193,6 +193,28 @@
                 "$ref": "../schemas/invoiceSchema.json"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": "../transmateSchemas/restAPI/invoice/get-invoice-response.json"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
