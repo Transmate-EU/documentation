@@ -23,11 +23,11 @@
   },
   "servers": [
     {
-      "url": "https://app.tranamate.eu",
+      "url": "https://app.transmate.eu",
       "description": "Live server"
     },
     {
-      "url": "https://test.tranamate.eu",
+      "url": "https://test.transmate.eu",
       "description": "Test server"
     }
   ],
