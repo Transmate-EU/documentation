@@ -23,12 +23,12 @@
   },
   "servers": [
     {
-      "url": "https://7b84f578.eu-de.apigw.appdomain.cloud",
+      "url": "https://app.tranamate.eu",
       "description": "Live server"
     },
     {
-      "url": "https://c99a35b8.eu-de.apigw.appdomain.cloud",
-      "description": "Dev server"
+      "url": "https://test.tranamate.eu",
+      "description": "Test server"
     }
   ],
   "tags": [
@@ -54,7 +54,7 @@
     }
   ],
   "paths": {
-    "/TransmateCustomerApi/partner": {
+    "/api/customer/partner": {
       "post": {
         "tags": [
           "Partner"
@@ -133,7 +133,7 @@
         "deprecated": false
       }
     },
-    "/TransmateCustomerApi/shipment": {
+    "/api/customer/shipment": {
       "post": {
         "operationId": "postShipment",
         "tags": [
@@ -174,7 +174,7 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/get": {
+    "/api/customer/invoices/get": {
       "post": {
         "operationId": "getInvoice",
         "tags": [
@@ -197,7 +197,7 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/flag": {
+    "/api/customer/invoices/flag": {
       "post": {
         "operationId": "updateInvoice",
         "tags": [
@@ -220,7 +220,7 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/list": {
+    "/api/customer/invoices/list": {
       "post": {
         "operationId": "getInvoices",
         "tags": [
