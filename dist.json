@@ -5,7 +5,7 @@
     "title": "Transmate APIs",
     "termsOfService": "https://www.transmate.eu/legal/terms-of-use",
     "contact": {
-      "email": "solutions@transmate.eu",
+      "email": "info@transmate.eu",
       "url": "https://www.transmate.eu/contact"
     },
     "license": {
@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "https://assets.transmate.eu/app/logo_transmate_transparent.png"
     },
-    "description": "description of the apis of transmate\n# Introduction\nTransmate has multiple api available:\n"
+    "description": "Description of the APIs of Transmate\n# Introduction\nTransmate has multiple API available:\n"
   },
   "externalDocs": {
     "description": "Transmate Webiste",
@@ -23,12 +23,12 @@
   },
   "servers": [
     {
-      "url": "https://7b84f578.eu-de.apigw.appdomain.cloud",
+      "url": "https://app.transmate.eu",
       "description": "Live server"
     },
     {
-      "url": "https://c99a35b8.eu-de.apigw.appdomain.cloud",
-      "description": "Dev server"
+      "url": "https://test.transmate.eu",
+      "description": "Test server"
     }
   ],
   "tags": [
@@ -54,7 +54,7 @@
     }
   ],
   "paths": {
-    "/TransmateCustomerApi/partner": {
+    "/api/customer/partner": {
       "post": {
         "tags": [
           "Partner"
@@ -113,7 +113,7 @@
         },
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "headers": {}
           },
           "404": {
@@ -133,7 +133,7 @@
         "deprecated": false
       }
     },
-    "/TransmateCustomerApi/shipment": {
+    "/api/customer/shipment": {
       "post": {
         "operationId": "postShipment",
         "tags": [
@@ -174,7 +174,7 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/get": {
+    "/api/customer/invoices/get": {
       "post": {
         "operationId": "getInvoice",
         "tags": [
@@ -194,10 +194,32 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": "../transmateSchemas/restAPI/invoice/get-invoice-response.json"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         }
       }
     },
-    "/TransmateCustomerApi/invoices/flag": {
+    "/api/customer/invoices/flag": {
       "post": {
         "operationId": "updateInvoice",
         "tags": [
@@ -220,7 +242,7 @@
         }
       }
     },
-    "/TransmateCustomerApi/invoices/list": {
+    "/api/customer/invoices/list": {
       "post": {
         "operationId": "getInvoices",
         "tags": [
@@ -396,7 +418,7 @@
         "x-code-samples": [
           {
             "lang": "NodeJs",
-            "source": "var request = require('request');\r\nvar options = {\r\n  'method': 'GET',\r\n  'url': 'https://eu-de.functions.cloud.ibm.com/api/v1/web/TransmateOrg_live/default/seadistance.json?from=amsterdam, netherlands&to=Hong Kong, China',\r\n  'headers': {\r\n    'apiKey': 'abc',\r\n    'Content-Type': 'application/json'\r\n  }\r\n};\r\nrequest(options, function (error, response) {\r\n  if (error) throw new Error(error);\r\n  console.log(response.body);\r\n});\r\n"
+            "source": "var request = require('request');\nvar options = {\n  'method': 'GET',\n  'url': 'https://eu-de.functions.cloud.ibm.com/api/v1/web/TransmateOrg_live/default/seadistance.json?from=amsterdam, netherlands&to=Hong Kong, China',\n  'headers': {\n    'apiKey': 'abc',\n    'Content-Type': 'application/json'\n  }\n};\nrequest(options, function (error, response) {\n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n"
           }
         ],
         "x-openwhisk": {
