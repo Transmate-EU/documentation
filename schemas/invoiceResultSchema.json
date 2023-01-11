@@ -1,0 +1,76 @@
+{
+    "header": {
+        "number": "Inv_number",
+        "accountId": "S123456",
+        "supplierId": "C123456",
+        "seller": {
+            "id": "S123456",
+            "name": "Demo seller",
+            "entityCode": "DEU",
+            "entityName": "Demo seller Deutschland GMBH",
+            "address": "Karkaustrasse 1",
+            "zip": "11550",
+            "city": "Dusseldorf",
+            "country": "de",
+            "vat": "DE124567"
+        },
+        "client": {
+            "id": "S123456",
+            "name": "Demo customer",
+            "entityCode": "CUS",
+            "entityName": "Demo Inc",
+            "address": "12 Some street",
+            "zip": "1100",
+            "city": "SomeTown",
+            "country": "uk",
+            "vat": "UK1234567"
+        },
+        "date": "2022-01-01T12:00:00:000",
+        "deliveryDate": "2022-01-01T12:00:00.000",
+        "totalAmount": {
+            "value": 1000,
+            "currency": "EUR"
+        },
+        "totalGross": {
+            "value": 1000,
+            "currency": "EUR"
+        },
+        "totalNet": {
+            "value": 850,
+            "currency": "EUR"
+        },
+        "totalTax": {
+            "value": 150,
+            "currency": "EUR"
+        }
+    },
+    "documents": [
+        {
+            "link": "fileStorageUrl",
+            "name": "Invoice document.pdf"
+        }
+    ],
+    "ts": "2022-10-10T12:00:00.000",
+    "items": [
+        {
+            "shipmentId": "jamBteMtkjQFyYF3w",
+            "number": "NsS0r741",
+            "delivery": "",
+            "costCenter": "CC1",
+            "costUnit": "CU1",
+            "notes": "Shipment invoice notes",
+            "net": 850,
+            "tax": 150,
+            "gross": 1000
+        }
+    ],
+    "itemSummary": [
+        {
+            "costCenter": "CC1",
+            "costUnit": "CU1",
+            "net": 850,
+            "tax": 150,
+            "gross": 1000
+        }
+    ]
+}

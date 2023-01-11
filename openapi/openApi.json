@@ -200,7 +200,7 @@
             "description": "OK",
             "content": {
               "application/json": {
-                "example": "../transmateSchemas/restAPI/invoice/get-invoice-response.json"
+                "example": "../schemas/invoiceResultSchema.json"
               }
             }
           },
@@ -280,7 +280,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "../transmateSchemas/restAPI/simulate/simulate.json"
+                "$ref": "../schemas/simulationSchema.json"
               }
             }
           }
@@ -292,7 +292,7 @@
         "tags": [
           "SeaDistance"
         ],
-        "summary": "Get the sea distance between two ports.",
+        "summary": "Get the ocean distance between two ports.",
         "security": [
           {
             "api_key": []
@@ -302,7 +302,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "../transmateSchemas/restAPI/seadistance/sea-distance-main.json"
+                "$ref": "../schemas/oceanDistance/ocean-distance-request.json"
               }
             }
           }

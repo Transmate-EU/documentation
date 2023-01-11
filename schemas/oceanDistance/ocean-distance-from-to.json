@@ -1,0 +1,33 @@
+{
+    "anyOf": [
+      {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "title": "Unlocodes",
+          "example": "BEANR"
+        }
+      },
+      {
+        "type": "string",
+        "title": "Unlocodes, or port names",
+        "example": "antwerp, belgium"
+      },
+      {
+        "type": "object",
+        "title": "coordinates of a point near a (big) port",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "example": [22.48441]
+          },
+          "lng": {
+            "type": "number",
+            "example": [-97.86003]
+          }
+        }
+      }
+    ],
+    "example": "IDJKT"
+  }
+  

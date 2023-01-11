@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "required": ["from", "to"],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["distance", "leadtime", "laneMatrix", "test"],
+        "example": "leadtime"
+      },
+      "from": { "$ref": "./ocean-distance-from-to.json" },
+      "to": { "$ref": "./ocean-distance-from-to.json"}
+    }
+  }
+  
