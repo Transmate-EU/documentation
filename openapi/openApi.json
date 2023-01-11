@@ -157,10 +157,10 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "$ref": "#/components/responses/OK"
           },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/unAuthorized"
           },
           "400": {
             "description": "Bad Request"
@@ -200,12 +200,14 @@
             "description": "OK",
             "content": {
               "application/json": {
-                "example": "../schemas/invoiceResultSchema.json"
+                "example": {
+                  "$ref": "../schemas/invoiceResultSchema.json"
+                }
               }
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/unAuthorized"
           },
           "400": {
             "description": "Bad Request"
@@ -239,6 +241,14 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "404": {
+            "$ref": "#/components/responses/notFound"
+          }
         }
       }
     },
@@ -262,11 +272,20 @@
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "404": {
+            "$ref": "#/components/responses/notFound"
+          }
         }
       }
     },
     "/transmateapi/simulateRate": {
       "post": {
+        "operationId": "simulateRate",
         "tags": [
           "Simulate"
         ],
@@ -283,6 +302,17 @@
                 "$ref": "../schemas/simulationSchema.json"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "404": {
+            "$ref": "#/components/responses/notFound"
+          },
+          "401": {
+            "$ref": "#/components/responses/unAuthorized"
           }
         }
       }
@@ -402,7 +432,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/unAuthorized"
           },
           "400": {
             "description": "Bad Request"
@@ -501,6 +531,27 @@
             }
           }
         }
+      }
+    },
+    "responses": {
+      "notFound": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "example": {
+              "error": {
+                "code": "issue with function!",
+                "message": "env not set, check your authentication keys!"
+              }
+            }
+          }
+        }
+      },
+      "unAuthorized": {
+        "description": "Unauthorized"
+      },
+      "OK": {
+        "description": "OK"
       }
     }
   }
